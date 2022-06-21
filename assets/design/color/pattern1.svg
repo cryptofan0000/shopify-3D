@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2021 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="118.07mm" height="64.68mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 11807 6468"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil2 {fill:#19a94a}
+    .fil1 {fill:#ffffff}
+    .fil0 {fill:#80cd8b}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_1743546731504">
+   <g>
+    <polygon id="A" class="fil0" points="11799.4,6468.5 -6.43,6468.5 -6.43,-9.8 11799.4,-9.8 ">
+     <metadata id="CorelCorpID_1">
+      <xodm:odm xodm:name="FillColor" xodm:value="A" xodm:type="0"/>
+     </metadata>
+    </polygon>
+    <polygon id="B" class="fil1" points="-6.43,315.21 11799.4,315.21 11799.4,436.81 -6.43,436.81 ">
+     <metadata id="CorelCorpID_2">
+      <xodm:odm xodm:name="FillColor" xodm:value="B" xodm:type="0"/>
+     </metadata>
+    </polygon>
+    <path id="C" class="fil2" d="M-6.43 1652.84l11805.83 0 0 121.6 -11805.83 0 0 -121.6zm0 1337.62l11805.83 0 0 121.61 -11805.83 0 0 -121.61z">
+     <metadata id="CorelCorpID_3">
+      <xodm:odm xodm:name="FillColor" xodm:value="C" xodm:type="0"/>
+     </metadata>
+    </path>
+   </g>
+   <g>
+    <polygon id="B_0" class="fil1" points="-6.43,4328.1 11799.4,4328.1 11799.4,4449.7 -6.43,4449.7 ">
+     <metadata id="CorelCorpID_4">
+      <xodm:odm xodm:name="FillColor" xodm:value="B" xodm:type="0"/>
+     </metadata>
+    </polygon>
+    <polygon id="C_1" class="fil2" points="-6.43,5665.72 11799.4,5665.72 11799.4,5787.33 -6.43,5787.33 ">
+     <metadata id="CorelCorpID_5">
+      <xodm:odm xodm:name="FillColor" xodm:value="C" xodm:type="0"/>
+     </metadata>
+    </polygon>
+   </g>
+  </g>
+ </g>
+</svg>

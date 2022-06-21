@@ -1,4 +1,5 @@
 if (!Detector.webgl) Detector.addGetWebGLMessage();
+var defaultSize = 1024
 
 var isMobile = false;
 var deleteIcon =
@@ -83,7 +84,7 @@ var mouse = new THREE.Vector2();
 var onClickPosition = new THREE.Vector2();
 var raycastContainer;
 var zoom = 1;
-var patternLists = ["pattern1", "pattern2"];
+var patternLists = ["pattern1", "pattern2", "pattern3"];
 
 if (width < height) {
   height = width;
@@ -95,32 +96,33 @@ if (width < height) {
 canvas.backgroundColor = "#FFBE9F";
 
 function loadSvg(patternNumber) {
+  backColor()
   if (canvas._objects[0] != undefined) {
     fabric.loadSVGFromURL(
       "assets/design/pattern/pattern" + patternNumber + ".svg",
-      function (objects, options) {
-        var svgData = fabric.util.groupSVGElements(objects, {
-          width: 1024,
-          height: 1024,
-          selectable: false,
-          crossOrigin: "anonymous",
-        });
-        svgData.top = 0;
-        svgData.left = 0;
-        svgGroup = svgData;
-        canvas.remove(canvas._objects[0]);
-        canvas.add(svgData);
-        canvas.sendToBack(svgData);
-        loadColorsName();
-      }
-    );
-  } else {
-    fabric.loadSVGFromURL(
-      "assets/design/pattern/pattern" + patternNumber + ".svg",
-      function (objects, options) {
-        var svgData = fabric.util.groupSVGElements(objects, {
-          width: 1024,
-          height: 1024,
+        function (objects, options) {
+          var svgData = fabric.util.groupSVGElements(objects, {
+            width: defaultSize,
+            height: defaultSize,
+            selectable: false,
+            crossOrigin: "anonymous",
+          });
+          svgData.top = 0;
+          svgData.left = 0;
+          svgGroup = svgData;
+          canvas.remove(canvas._objects[0]);
+          canvas.add(svgData);
+          canvas.sendToBack(svgData);
+          loadColorsName();
+        }
+      );
+    } else {
+      fabric.loadSVGFromURL(
+        "assets/design/pattern/pattern" + patternNumber + ".svg",
+        function (objects, options) {
+          var svgData = fabric.util.groupSVGElements(objects, {
+          width: defaultSize,
+          height: defaultSize,
           selectable: false,
           crossOrigin: "anonymous",
         });
@@ -272,8 +274,8 @@ function init() {
   light = new THREE.DirectionalLight(0xffffff, 0.2);
   light.position.set(500, 100, 80);
   light.castShadow = true;
-  light.shadow.mapSize.width = 1024;
-  light.shadow.mapSize.height = 1024;
+  light.shadow.mapSize.width = defaultSize;
+  light.shadow.mapSize.height = defaultSize;
   var d = 300;
   light.shadow.camera.left = -d;
   light.shadow.camera.right = d;
@@ -487,7 +489,7 @@ function enableAddText(text) {
   canvas.on("mouse:down", function (e) {
     if (addTextEnable) {
       if (e.target._objects != undefined) {
-        addText2(newText.at(-1), getUv.x * (1024 - 40), getUv.y * (1024 - 20));
+        addText2(newText.at(-1), getUv.x * (defaultSize - 40), getUv.y * (defaultSize - 20));
         $("#renderer").css("z-index", "1");
         $(".styleContainer").css("display", "none");
         $("#textInfo").css("display", "none");
@@ -587,7 +589,7 @@ function onTouch(evt) {
 
 function getRealPosition(axis, value) {
   let CORRECTION_VALUE = axis === "x" ? 5.5 : 4.5;
-  return Math.round(value * 1024) - CORRECTION_VALUE + 5;
+  return Math.round(value * defaultSize) - CORRECTION_VALUE + 5;
 }
 var getUv;
 
@@ -652,6 +654,8 @@ var getIntersects = function (point, objects) {
   return raycaster.intersectObjects(objects);
 };
 
+var Source_Patterns = ["pattern1", "pattern2", "pattern3", "pattern4", "pattern5", "pattern6", "pattern7", "pattern8", "pattern9", "pattern10", "pattern11", "pattern12", "pattern13", "pattern14"]
+
 function loadColorsName() {
   var data;
   var materialContainer = "";
@@ -672,14 +676,17 @@ function loadColorsName() {
         data +
         `</span>
         </div>
-          
+        <div style="display: flex;justify-content: space-between;align-items:center; flex-direction: columum;">
+          <div class="pattern-content" style="background-image: url(./assets/design/color/none.svg)" onclick="patternPicker('${svgGroup._objects[i].id}')"></div>
+          <span style="text-transform:capitalize;" class="egseas">Pattern</span>
+        </div>
         </div>
         <script>
           colorPicker('` +
         svgGroup._objects[i].id +
         `','` +
         svgGroup._objects[i].fill +
-        `')
+        `');
         </script>`;
     }
   }
@@ -694,6 +701,55 @@ function loadColorsName() {
   }
 }
 
+function patternPicker(id) {
+  var patternContainer = ''
+  patternContainer += `<div class="backBtn" onClick="backColor()">Back</div>`
+  Source_Patterns.forEach(pattern => {
+    patternContainer += `<div class="pattern-wrap">
+      <div class="pattern-select" style="background-image: url(./assets/design/color/${pattern}.svg)" onclick="onPatternSelect('${id}', '${pattern}')"></div>
+      <label>${pattern}</label>
+    </div>`
+  });
+  
+  $('.materials').hide()
+  $('.patternContainer').show()
+  $('.patternContainer').empty().append(patternContainer)
+}
+
+function backColor() {
+  $('.materials').show()
+  $('.patternContainer').empty()
+  $('.patternContainer').hide()
+}
+
+function onPatternSelect(id, patternName) {
+  svgGroup._objects.forEach((obj) => {
+    if(obj.id === id) {
+      fabric.util.loadImage("assets/design/color/" + patternName + ".svg",
+        function (patterns, options) {
+          obj.set("fill", new fabric.Pattern({
+            source: patterns,
+            repeat: "repeat"
+          }))
+          canvas.renderAll();
+          var definId = 'mat_' + id.split("ZONE_x28_")[1].split("_x29_")[0]
+          $(`#${definId}`).find(".pattern-content").css('background-image', 'url(./assets/design/color/' + patternName + '.svg)')
+          $(`#${definId}`).find(".sp-preview-inner").css('background-color', 'rgba(0, 0, 0, 0)')
+        })
+        // function(img) {
+        //   // img.scaleToWidth(100)
+        //   var patternSourceCanvas = new fabric.StaticCanvas()
+        //   patternSourceCanvas.add(img)
+        //   patternSourceCanvas.renderAll()
+        //   obj.set("fill", new fabric.Pattern({
+        //     source: patternSourceCanvas.getElement(),
+        //     repeat: 'repeat'
+        //   }))
+        // })
+    }
+  })
+}
+
 function colorPicker(id, color) {
   $("#" + id).spectrum({
     type: "color",
@@ -705,6 +761,9 @@ function colorPicker(id, color) {
           // console.log("changed");
           obj.set("fill", e.toHexString());
           canvas.renderAll();
+
+          var definId = 'mat_' + id.split("ZONE_x28_")[1].split("_x29_")[0]
+          $(`#${definId}`).find(".pattern-content").css('background-image', 'url(./assets/design/color/none.svg)')
         }
       });
     },
@@ -744,14 +803,14 @@ function imageContainer() {
       </ul>
     `;
   });
-  $(".bitmapContainer")
-    .empty()
-    .append(imageForm + imageLayer);
-  document
-    .getElementById("uploadedImg")
-    .addEventListener("change", function (e) {
-      handleImage(e);
-    });
+  // $(".bitmapContainer")
+  //   .empty()
+  //   .append(imageForm + imageLayer);
+  // document
+  //   .getElementById("uploadedImg")
+  //   .addEventListener("change", function (e) {
+  //     handleImage(e);
+  //   });
 }
 
 function scaleDownImage() {

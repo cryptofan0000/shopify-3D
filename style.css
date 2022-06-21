@@ -13,6 +13,10 @@ body {
   font-family: "Open Sans", Arial, sans-serif;
 }
 
+* {
+  user-select: none;
+}
+
 .lab-panel_main {
   min-height: 100vh;
   padding: 8.5em 2.5em 8em;
@@ -543,4 +547,49 @@ span.egseas {
   background: rgba(0, 0, 0, 0.5);
   z-index: 9999;
   color: white;
+}
+
+.materials {
+  width: 100%;
+}
+
+.pattern-content {
+  background-size: 57px 40px;
+  background-repeat: no-repeat;
+  width: 57px;
+  height: 40px;
+}
+
+.patternContainer {
+  width: 100%;
+}
+
+.pattern-wrap {
+  float: left;
+  width: 50%;
+  height: 110px;
+  text-align: center;
+}
+
+.pattern-select {
+  width: 100%;
+  height: 80%;
+  background-size: 100% 100%;
+}
+
+.pattern-wrap:nth-child(2n) {
+  padding-left: 10px;
+}
+
+.pattern-wrap:nth-child(odd) {
+  padding-right: 10px;
+}
+
+.backBtn {
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.pattern-wrap > label {
+  text-transform: capitalize;
 }
