@@ -502,6 +502,8 @@ span.egseas {
 .sp-light.sp-replacer {
   height: 40px;
   width: 100%;
+  border-radius: 0px;
+  border: none;
 }
 
 .row {
@@ -592,4 +594,142 @@ span.egseas {
 
 .pattern-wrap > label {
   text-transform: capitalize;
+}
+
+.card {
+  border: 1px solid #fff !important;
+}
+.card-header {
+  background: #000 !important;
+  border-bottom: 1px solid #fff !important;
+}
+.btn-link {
+  color: #fff !important;
+}
+
+.step-title {
+  font-size: 16px;
+}
+
+.step-desc {
+  font-size: 12px;
+}
+
+.step {
+  cursor: pointer;
+}
+
+.steps > .active {
+  color: rgb(220, 27, 153);
+}
+
+.steps {
+  display: flex;
+}
+
+.next-btn {
+  width: 120px;
+  height: 38px;
+  border: solid 1px rgb(252, 0, 164);
+  background-color: rgb(220, 27, 153);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFF;
+}
+
+.prev-btn {
+  width: 120px;
+  height: 38px;
+  border: solid 1px #333;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.sp-dd {
+  display: none;
+}
+
+#toolbox .toolbox-header {
+  background: #d2d2d2;
+  border: 1px solid #cbcbcb;
+  padding: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin: 0px;
+}
+
+#toolbox .toolbox-header img {
+  width: 16px;
+  height: 16px;
+  float: left;
+}
+
+#toolbox .toolbox-header .toolbox-arrow.turn-down {
+  transform: rotate(0);
+}
+
+.row:after, .row:before {
+  content: "";
+  display: table;
+}
+
+.row:after {
+  clear: both;
+}
+
+#toolbox {
+  background: #fff;
+  width: 46px;
+  height: auto;
+  position: absolute;
+  z-index: 999;
+  top: 64px;
+  left: 20px;
+  -webkit-box-shadow: 1px 1px 10px #969696;
+  -moz-box-shadow: 1px 1px 10px #969696;
+  box-shadow: 1px 1px 10px #969696;
+}
+
+#toolbox .toolbox-content.active {
+  display: block;
+  height: 230px;
+}
+
+.left-side #toolbox .toolbox-content {
+  background: #f6f6f6;
+  text-align: center;
+  height: 0;
+  overflow-y: hidden;
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0,1,0.5,1);
+}
+
+#toolbox .toolbox-content .toolbox-content-section {
+  overflow: hidden;
+}
+
+#toolbox .toolbox-icon {
+  display: block;
+  width: 46px;
+  height: 46px;
+  border-right: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
+  border-left: 1px solid #cbcbcb;
+  padding: 1px;
+  cursor: pointer;
+}
+
+#toolbox .toolbox-icon img {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
 }

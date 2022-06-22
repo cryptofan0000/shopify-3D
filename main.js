@@ -1579,3 +1579,31 @@ function convertToImage() {
 
   canvas.discardActiveObject().renderAll();
 }
+
+$('.collapse').on('show.bs.collapse', function (e) {
+  var selectedCollape = $(e.target).attr('id')
+  if(selectedCollape === 'collapseOne') {
+    $('.steps div.step:nth-child(1)').addClass('active')
+    $('.steps div.step:nth-child(2)').removeClass('active')
+    $('.steps div.step:nth-child(3)').removeClass('active')
+    $('.steps div.step:nth-child(4)').removeClass('active')
+  }
+  else if(selectedCollape === 'collapseTwo') {
+    $('.steps div.step:nth-child(1)').removeClass('active')
+    $('.steps div.step:nth-child(2)').addClass('active')
+    $('.steps div.step:nth-child(3)').removeClass('active')
+    $('.steps div.step:nth-child(4)').removeClass('active')
+  }
+  else if(selectedCollape === 'collapseThree') {
+    $('.steps div.step:nth-child(1)').removeClass('active')
+    $('.steps div.step:nth-child(2)').removeClass('active')
+    $('.steps div.step:nth-child(3)').addClass('active')
+    $('.steps div.step:nth-child(4)').removeClass('active')
+  }
+  else if(selectedCollape === 'collapseFour') {
+    $('.steps div.step:nth-child(1)').removeClass('active')
+    $('.steps div.step:nth-child(2)').removeClass('active')
+    $('.steps div.step:nth-child(3)').removeClass('active')
+    $('.steps div.step:nth-child(4)').addClass('active')
+  }
+});

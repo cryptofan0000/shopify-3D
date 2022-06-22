@@ -4,104 +4,71 @@
     <meta charset="utf-8" />
     <title>Shopify 3D Customization App</title>
 
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css"
-    />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css"/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style type="text/css">
-      .card {
-        border: 1px solid #fff !important;
-      }
-      .card-header {
-        background: #000 !important;
-        border-bottom: 1px solid #fff !important;
-      }
-      .btn-link {
-        color: #fff !important;
-      }
-    </style>
   </head>
 
   <body>
     <div id="loading" style="display: none">Loading</div>
     <div id="imageContainer" style="display: none"></div>
-    <header
-      style="border-bottom-color: #e9e9e9; box-shadow: 0 0 3px rgb(0 0 0 / 10%)"
-    ></header>
+    <header style="border-bottom-color: #e9e9e9; box-shadow: 0 0 3px rgb(0 0 0 / 10%)"></header>
     <div id="styleContainer" class="styleContainer"></div>
     <div class="container-fluid" style="padding: 20px 20px">
-      <div
-        class="row clearfix"
-        style="display: flex; justify-content: center; align-content: center"
-      >
+      <div class="row clearfix" style="display: flex; justify-content: center; align-content: center">
         <div class="col-md-6">
+          <div class="steps">
+            <div class="col-md-3 step active" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <div class="step-title">Step 1</div>
+              <div class="step-desc">CHOOSE DESIGN</div>
+            </div>
+            <div class="col-md-3 step" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <div class="step-title">Step 2</div>
+              <div class="step-desc">CHOOSE BASE COLOURS</div>
+            </div>
+            <div class="col-md-3 step" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <div class="step-title">Step 3</div>
+              <div class="step-desc">ADD TEXT [IF YOU WANT]</div>
+            </div>
+            <div class="col-md-3 step" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              <div class="step-title">Step 4</div>
+              <div class="step-desc">ADD LOGO [IF YOU WANT]</div>
+            </div>
+          </div>
+
           <div style="min-height: 500px; border: 1px solid #f4f4f4">
             <div id="accordion">
+
               <div class="card">
                 <div class="card-header" id="headingOne">
                   <h5 class="mb-0">
-                    <button
-                      class="btn btn-link"
-                      data-toggle="collapse"
-                      data-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                       DESIGN
                     </button>
                   </h5>
                 </div>
-
-                <div
-                  id="collapseOne"
-                  class="collapse show"
-                  aria-labelledby="headingOne"
-                  data-parent="#accordion"
-                >
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                   <div class="card-body">
-                    <div
-                      class="styles d-flex justify-content-between flex-wrap"
-                    ></div>
+                    <div class="styles d-flex justify-content-between flex-wrap"></div>
                   </div>
                 </div>
               </div>
+
               <div class="card">
                 <div class="card-header" id="headingTwo">
                   <h5 class="mb-0">
-                    <button
-                      class="btn btn-link collapsed"
-                      data-toggle="collapse"
-                      data-target="#collapseTwo"
-                      aria-expanded="false"
-                      aria-controls="collapseTwo"
-                    >
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                       CHOOSE COLOURS
                     </button>
                   </h5>
                 </div>
-                <div
-                  id="collapseTwo"
-                  class="collapse"
-                  aria-labelledby="headingTwo"
-                  data-parent="#accordion"
-                >
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                   <div class="card-body">
                     <div class="materials"></div>
                     <div class="patternContainer" style="display: none;">
@@ -109,85 +76,115 @@
                   </div>
                 </div>
               </div>
+
               <div class="card">
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
-                    <button
-                      class="btn btn-link collapsed"
-                      data-toggle="collapse"
-                      data-target="#collapseThree"
-                      aria-expanded="false"
-                      aria-controls="collapseThree"
-                    >
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                       ADD TEXT
                     </button>
                   </h5>
                 </div>
-                <div
-                  id="collapseThree"
-                  class="collapse"
-                  aria-labelledby="headingThree"
-                  data-parent="#accordion"
-                >
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                   <div class="card-body">
                     <div class="textCreateContainer"></div>
                     <div class="textEditContainer" style="display: none"></div>
                   </div>
                 </div>
               </div>
+
               <div class="card">
                 <div class="card-header" id="headingFour">
                   <h5 class="mb-0">
-                    <button
-                      class="btn btn-link collapsed"
-                      data-toggle="collapse"
-                      data-target="#collapseFour"
-                      aria-expanded="false"
-                      aria-controls="collapseFour"
-                    >
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                       ADD LOGO
                     </button>
                   </h5>
                 </div>
-                <div
-                  id="collapseFour"
-                  class="collapse"
-                  aria-labelledby="headingFour"
-                  data-parent="#accordion"
-                >
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                   <div class="card-body">
-                    <!-- <div class="textCreateContainer"></div> -->
-                    <!-- <div class="textEditContainer" style="display: none"></div> -->
                   </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; margin-top: 20px;">
+            <div class="prev-btn">< Prev</div>
+            <div class="next-btn">Next ></div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between;">
+            <div style="width: 100px; height: 38px; background-color: #FFF; border: solid 1px #f4f4f4; display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; margin-left: 50px;">
+              <div style="font-size: 25px;">-</div>
+              <div style="font-size: 18px;">0</div>
+              <div style="font-size: 25px; color: #1988fb;">+</div>
+            </div>
+            <a
+              href="https://cyclists.com/cart/update?updates[42266882605255]=1"
+              target="_blank"
+              class="btn btn-danger btn-lg"
+              style="
+                width: calc(100% - 170px) !important;
+                background: rgb(220, 27, 153);
+                border-radius: 1px;
+                border-style: none;
+                border-color: rgb(29, 29, 29);
+                border-width: 2px;
+                color: rgb(255, 255, 255);
+                font-family: Chivo, Helvetica, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 400;
+                letter-spacing: 0px;
+                line-height: 1;
+                white-space: normal;
+                padding: 0px 10px;
+                text-align: center;
+                word-break: break-word;
+                align-self: flex-end;
+                cursor: pointer;
+                height: 38px;
+              "
+              >
+                <span id="AddToCartText-template--15344012165319__product" style="line-height: 2.7">ADD TO CART</span>
+            </a>
+          </div>
+        </div>
+
+        <div style="touch-action: none; overflow: hidden; max-height: calc(100vh - 200px); width: 100%;" class="col-md-5" id="container">
+          <div id="toolbox">
+            <header class="toolbox-header row">
+              <img src="./assets/icons/toolbox-auge.svg" alt="Owayo Toolbox Auge">
+              <img class="toolbox-arrow turn-down" src="./assets/icons/toolbox-header-pfeil.svg" alt="Owayo Toolbox Pfeil">
+            </header>
+            <div class="toolbox-content active">
+              <div class="toolbox-content-section">
+                <div class="toolbox-icon zoom-in tracker" data-buttontype="zoom-in" data-track-url="konfitrack-werkzeug.htm">
+                  <img src="./assets/icons/toolbox-zoom-in.svg" title="Zoom in" alt="Owayo Toolbox Zoom in" data-track-url="konfitrack-werkzeug.htm">
+                </div>
+                <div class="toolbox-icon zoom-out disabled tracker" data-buttontype="zoom-out" data-track-url="konfitrack-werkzeug.htm">
+                  <img src="./assets/icons/toolbox-zoom-out.svg" title="Zoom out" alt="Owayo Toolbox Zoom out" data-track-url="konfitrack-werkzeug.htm">
+                </div>
+                <div class="toolbox-icon turn-right tracker" data-buttontype="turn-right" data-track-url="konfitrack-werkzeug.htm">
+                  <img src="./assets/icons/toolbox-drehen-rechts.svg" title="Rotate clockwise" alt="Owayo Toolbox nach rechts drehen" data-track-url="konfitrack-werkzeug.htm">
+                </div>
+                <div class="toolbox-icon turn-left tracker" data-buttontype="turn-left" data-track-url="konfitrack-werkzeug.htm">
+                  <img src="./assets/icons/toolbox-drehen-links.svg" title="Rotate counterclockwise" alt="Owayo Toolbox nach links drehen" data-track-url="konfitrack-werkzeug.htm">
+                </div>
+                <div id="undo" class="toolbox-icon not_available">
+                  <img src="./assets/icons/one-step-back.svg" alt="undo">
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div
-          style="
-            touch-action: none;
-            overflow: hidden;
-            max-height: calc(100vh - 200px);
-            width: 100%;
-          "
-          class="col-md-5"
-          id="container"
-        >
-          <div style="position: absolute; bottom: 20px; left: 20px; z-index: 5">
-            <button
-              style="
-                cursor: pointer;
-                background: white;
-                padding: 5px 10px;
-                border-radius: 50%;
-                border: 1px solid rgba(0, 0, 0, 0.125);
-              "
-              onclick="controls.reset()"
-            >
+          <div style="position: absolute; bottom: 150px; left: 100px; z-index: 5">
+            <button style="cursor: pointer; background: white; padding: 5px 10px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, 0.125);" onclick="controls.reset()">
               <i class="fas fa-redo"></i>
             </button>
+          </div>
+          <div style="position: absolute; text-align:center; bottom: 60px; z-index: 10; width: 100%;">
+            <b style="font-size: 20px;">$51.99</b> | Save $13.00 <span style="color: #FF0000;">(25% off)</span>
           </div>
           <canvas id="renderer"></canvas>
           <div id="textInfo">
@@ -195,47 +192,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6"></div>
-        <div class="col-md-6 text-center">
-          <a
-            href="https://cyclists.com/cart/update?updates[42266882605255]=1"
-            target="_blank"
-            class="btn btn-danger btn-lg"
-            style="
-              width: 100% !important;
-              background: rgb(220, 27, 153);
-              border-radius: 1px;
-              border-style: none;
-              border-color: rgb(29, 29, 29);
-              border-width: 2px;
-              color: rgb(255, 255, 255);
-              font-family: Chivo, Helvetica, Arial, sans-serif;
-              font-size: 14px;
-              font-weight: 400;
-              letter-spacing: 0px;
-              line-height: 1;
-              white-space: normal;
-              padding: 0px 10px;
-              text-align: center;
-              word-break: break-word;
-              align-self: flex-end;
-              cursor: pointer;
-              height: 38px;
-            "
-            ><span
-              id="AddToCartText-template--15344012165319__product"
-              style="line-height: 2.7"
-              >ADD TO CART</span
-            ></a
-          >
-        </div>
-      </div>
     </div>
-
-    <footer id="footer">
-      <p class="text-center">powered by aleksovApps.com</p>
-    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/97/three.min.js"></script>
     <script type="text/javascript" src="LoaderSupport.js"></script>
@@ -245,19 +202,10 @@
     <script type="text/javascript" src="OBJLoader2.js"></script>
     <script type="text/javascript" src="SVGLoader.js"></script>
     <script type="text/javascript" src="Detector.js"></script>
-    <script
-      type="text/javascript"
-      src="//cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"
-    ></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
 
-    <canvas
-      style="display: none"
-      id="canvas"
-      height="1024"
-      width="1024"
-      style="width: 0; height: 0"
-    ></canvas>
-    
+    <canvas style="display: none" id="canvas" height="1024" width="1024" style="width: 0; height: 0"></canvas>
+
     <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
