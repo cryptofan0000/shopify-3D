@@ -84,7 +84,7 @@ var mouse = new THREE.Vector2();
 var onClickPosition = new THREE.Vector2();
 var raycastContainer;
 var zoom = 1;
-var patternLists = ["pattern1", "pattern2", "pattern3"];
+var patternLists = ["pattern1", "pattern2", "pattern3", "pattern4"];
 
 if (width < height) {
   height = width;
